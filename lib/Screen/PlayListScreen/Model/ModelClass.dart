@@ -1,10 +1,14 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
+
 class Model {
-  String? name, image;
+  List<Audio>? PlayList;
+  List? Name, Images;
   int? index;
 
   Model({
-    this.name,
-    this.image,
+    this.PlayList,
+    this.Name,
     this.index,
+    this.Images,
   });
 }

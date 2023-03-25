@@ -26,7 +26,9 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
   Widget build(BuildContext context) {
     homeProviderfalse = Provider.of<HomeProvider>(context, listen: false);
     homeProvidertrue = Provider.of<HomeProvider>(context, listen: true);
+
     Model m1 = ModalRoute.of(context)!.settings.arguments as Model;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -62,7 +64,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                 width: 400,
                 height: 400,
                 child: Image.asset(
-                  "${m1.image}",
+                  "${m1.Images![m1.index!]}",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -77,7 +79,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "${m1.name}",
+                            "${m1.Name![m1.index!]}",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                           IconButton(
@@ -91,7 +93,6 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                       Container(
                         width: double.infinity,
                         height: 50,
-                        color: Colors.blue,
                         child: Slider(
                           value: position.inSeconds.toDouble(),
                           onChanged: (value) {
@@ -109,7 +110,22 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                           inactiveColor: Colors.white10,
                         ),
                       ),
-                      SizedBox(height: 30),
+                      Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${position.inMinutes} : ${position.inSeconds.toInt()}",
+                              style: TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                            Text(
+                              "${homeProviderfalse!.TotalDuration.inMinutes} : ${homeProviderfalse!.TotalDuration.inSeconds}",
+                              style: TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -133,7 +149,6 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                             child: InkWell(
                               onTap: () {
                                 homeProviderfalse!.ChechPlayButton();
-                                print(homeProvidertrue!.check);
                               },
                               child: Icon(
                                 homeProvidertrue!.check
@@ -155,7 +170,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                             size: 40,
                           ),
                         ],
-                      )
+                      ),
                     ],
                   );
                 },

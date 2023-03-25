@@ -20,6 +20,9 @@ class _PlayListScreenState extends State<PlayListScreen> {
   Widget build(BuildContext context) {
     homeProviderfalse = Provider.of<HomeProvider>(context, listen: false);
     homeProvidertrue = Provider.of<HomeProvider>(context, listen: true);
+
+    Model m1 = ModalRoute.of(context)!.settings.arguments as Model;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -57,11 +60,14 @@ class _PlayListScreenState extends State<PlayListScreen> {
                     ],
                   ),
                   SizedBox(height: 20),
-                  Container(
-                    height: 250,
-                    width: 250,
-                    child: Image.asset(
-                      "Assets/Images/PlayList1/aukaat.jpg",
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      height: 250,
+                      width: 250,
+                      child: Image.asset(
+                        "${m1.Images![0]}",
+                      ),
                     ),
                   ),
                   SizedBox(height: 15),
@@ -92,9 +98,53 @@ class _PlayListScreenState extends State<PlayListScreen> {
                   ),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: homeProviderfalse!.PlayList1.length,
+                      itemCount: m1.PlayList!.length,
                       itemBuilder: (context, index) {
-                        return PlayList1(index);
+                        return InkWell(
+                          onTap: () {
+                            Model M1 = Model(
+                              Images: m1.Images!,
+                              PlayList: m1.PlayList!,
+                              Name: m1.Name!,
+                              index: index,
+                            );
+
+                            Navigator.pushNamed(
+                              context,
+                              'audio play',
+                              arguments: M1,
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 80,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    SizedBox(width: 20),
+                                    Text(
+                                      "${m1.Name![index]}",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 25),
+                                    ),
+                                  ],
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                    size: 15,
+                                  ),
+                                  onPressed: () {
+                                    homeProviderfalse!.ChechPlayButton();
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ),
@@ -102,47 +152,6 @@ class _PlayListScreenState extends State<PlayListScreen> {
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget PlayList1(int index) {
-    return InkWell(
-      onTap: () {
-        Model m1 = Model(
-          index: index,
-          image: homeProviderfalse!.PlayListImage1[index],
-          name: homeProviderfalse!.PlayListName1[index],
-        );
-        Navigator.pushNamed(context, 'audio play',arguments: m1);
-      },
-      child: Container(
-        width: double.infinity,
-        height: 80,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                SizedBox(width: 20),
-                Text(
-                  "${homeProviderfalse!.PlayListName1[index]}",
-                  style: TextStyle(color: Colors.white, fontSize: 25),
-                ),
-              ],
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 15,
-              ),
-              onPressed: () {
-                homeProviderfalse!.ChechPlayButton();
-              },
-            ),
-          ],
         ),
       ),
     );
