@@ -64,7 +64,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                 width: 400,
                 height: 400,
                 child: Image.asset(
-                  "${m1.Images![m1.index!]}",
+                  "${m1.Images![m1.index! + homeProvidertrue!.i]}",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -117,11 +117,13 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                           children: [
                             Text(
                               "${position.inMinutes} : ${position.inSeconds.toInt()}",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
                             ),
                             Text(
                               "${homeProviderfalse!.TotalDuration.inMinutes} : ${homeProviderfalse!.TotalDuration.inSeconds}",
-                              style: TextStyle(color: Colors.white, fontSize: 15),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
                             ),
                           ],
                         ),
@@ -129,15 +131,16 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
-                            Icons.skip_previous,
-                            color: Colors.white,
-                            size: 40,
-                          ),
-                          Icon(
-                            Icons.skip_previous,
-                            color: Colors.white,
-                            size: 60,
+                          IconButton(
+                            onPressed: () {
+                              homeProviderfalse!.BackAudio();
+                              homeProviderfalse!.i--;
+                            },
+                            icon: Icon(
+                              Icons.skip_previous,
+                              color: Colors.white,
+                              size: 60,
+                            ),
                           ),
                           Container(
                             height: 90,
@@ -159,15 +162,16 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                               ),
                             ),
                           ),
-                          Icon(
-                            Icons.skip_next,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                          Icon(
-                            Icons.skip_previous,
-                            color: Colors.white,
-                            size: 40,
+                          IconButton(
+                            onPressed: () {
+                              homeProviderfalse!.i++;
+                              homeProviderfalse!.NextAudio();
+                            },
+                            icon: Icon(
+                              Icons.skip_next,
+                              color: Colors.white,
+                              size: 60,
+                            ),
                           ),
                         ],
                       ),

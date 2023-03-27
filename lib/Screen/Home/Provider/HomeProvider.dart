@@ -5,6 +5,7 @@ class HomeProvider extends ChangeNotifier {
   AssetsAudioPlayer? assetsAudioPlayer;
   bool check = false;
   Duration TotalDuration = Duration();
+  int i=0;
 
   List<Audio> PlayList1 = [
     Audio("Assets/Audio/PlayList1/AUKAAT.mp3"),
@@ -16,12 +17,18 @@ class HomeProvider extends ChangeNotifier {
     Audio("Assets/Audio/PlayList1/Nanpan No Nedlo.mp3.mp3"),
   ];
   List<Audio> PlayList2 = [
-    Audio("Assets/Audio/PlayList2/Basti Ka Hasti.jpg"),
-    Audio("Assets/Audio/PlayList2/EK DIN PYAAR.jpg"),
-    Audio("Assets/Audio/PlayList2/COMPANY.jpg"),
-    Audio("Assets/Audio/PlayList2/No Love.jpg"),
-    Audio("Assets/Audio/PlayList2/TODH.jpg"),
-    Audio("Assets/Audio/PlayList2/YALGAAR.jpg"),
+    Audio("Assets/Audio/PlayList2/Basti Ka Hasti.mp3"),
+    Audio("Assets/Audio/PlayList2/EK DIN PYAAR.mp3"),
+    Audio("Assets/Audio/PlayList2/COMPANY.mp3"),
+    Audio("Assets/Audio/PlayList2/No Love.mp3"),
+    Audio("Assets/Audio/PlayList2/TODH.mp3"),
+    Audio("Assets/Audio/PlayList2/YALGAAR.mp3"),
+  ];
+  List<Audio> PlayList3 = [
+    Audio("Assets/Images/PlayList3/295.mp3"),
+    Audio("Assets/Images/PlayList3/BROWN MUNDE.mp3"),
+    Audio("Assets/Images/PlayList3/Outlaw.mp3"),
+    Audio("Assets/Images/PlayList3/SARKAR.mp3"),
   ];
 
   List PlayListName1 = [
@@ -41,6 +48,12 @@ class HomeProvider extends ChangeNotifier {
     "TODH",
     "YALGAAR",
   ];
+  List PlayListName3 = [
+    "295",
+    "Brown munde",
+    "Outlaw",
+    "Sarkar",
+  ];
 
   List PlayListImage1 = [
     "Assets/Images/PlayList1/aukaat.jpg",
@@ -59,6 +72,12 @@ class HomeProvider extends ChangeNotifier {
     "Assets/Images/PlayList2/TODH.jpg",
     "Assets/Images/PlayList2/YALGAAR.jpg",
   ];
+  List PlayListImage3 = [
+    "Assets/Images/PlayList3/295.jpg",
+    "Assets/Images/PlayList3/BROWN MUNDE.jpg",
+    "Assets/Images/PlayList3/Outlaw.jpg",
+    "Assets/Images/PlayList3/SARKAR.jpg",
+  ];
 
   void initAudio() {
     assetsAudioPlayer = AssetsAudioPlayer();
@@ -73,6 +92,11 @@ class HomeProvider extends ChangeNotifier {
       showNotification: true,
       autoStart: false,
     );
+    assetsAudioPlayer!.open(
+      Playlist(audios: PlayList3),
+      showNotification: true,
+      autoStart: false,
+    );
 
     totalDurationAudio();
   }
@@ -83,6 +107,17 @@ class HomeProvider extends ChangeNotifier {
 
   Future<void> StopAudio() async {
     await assetsAudioPlayer!.pause();
+  }
+
+
+  Future<void> NextAudio() async {
+    await assetsAudioPlayer!.next();
+    notifyListeners();
+  }
+
+  Future<void> BackAudio() async {
+    await assetsAudioPlayer!.previous();
+    notifyListeners();
   }
 
   void ChechPlayButton() {
