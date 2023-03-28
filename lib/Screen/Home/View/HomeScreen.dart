@@ -460,6 +460,246 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+                SizedBox(height: 20),
+                Container(
+                  width: double.infinity,
+                  height: 500,
+                  decoration: BoxDecoration(
+                    color: Colors.white30,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          "${homeProviderfalse!.PlayListImage2[0]}",
+                          width: double.infinity,
+                          height: 350,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: InkWell(
+                            onTap: () {
+                              Model m1 = Model(
+                                Name: homeProviderfalse!.PlayListName4,
+                                Images: homeProviderfalse!.PlayListImage4,
+                                PlayList: homeProviderfalse!.PlayList4,
+                              );
+                              Navigator.pushNamed(context, 'playlist',
+                                  arguments: m1);
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "${homeProviderfalse!.PlayListImage4[0]}",
+                                      height: 70,
+                                      width: 70,
+                                    ),
+                                    SizedBox(width: 20),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Gujarati Song",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "PlayList",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 15),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.add_circle_outline,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
+                                        SizedBox(width: 20),
+                                        Icon(
+                                          Icons.more_vert,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "${homeProviderfalse!.PlayList2.length} Songs",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        SizedBox(width: 20),
+                                        Icon(
+                                          Icons.play_circle,
+                                          color: Colors.white,
+                                          size: 40,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  width: double.infinity,
+                  height: 500,
+                  decoration: BoxDecoration(
+                    color: Colors.white30,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          "${homeProviderfalse!.PlayListImage3[0]}",
+                          width: double.infinity,
+                          height: 350,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: InkWell(
+                            onTap: () {
+                              Model m1 = Model(
+                                Name: homeProviderfalse!.PlayListName5,
+                                Images: homeProviderfalse!.PlayListImage5,
+                                PlayList: homeProviderfalse!.PlayList5,
+                              );
+                              Navigator.pushNamed(context, 'playlist',
+                                  arguments: m1);
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "${homeProviderfalse!.PlayListImage5[0]}",
+                                      height: 70,
+                                      width: 70,
+                                    ),
+                                    SizedBox(width: 20),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Gujarati Song",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "PlayList",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 15),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.add_circle_outline,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
+                                        SizedBox(width: 20),
+                                        Icon(
+                                          Icons.more_vert,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "${homeProviderfalse!.PlayList3.length} Songs",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        SizedBox(width: 20),
+                                        Icon(
+                                          Icons.play_circle,
+                                          color: Colors.white,
+                                          size: 40,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

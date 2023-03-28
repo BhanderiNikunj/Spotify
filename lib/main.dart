@@ -7,6 +7,7 @@ import 'package:spotify/Screen/FlasScreen/View/FlasScreen.dart';
 import 'package:spotify/Screen/Home/Provider/HomeProvider.dart';
 import 'package:spotify/Screen/Home/View/HomeScreen.dart';
 import 'package:spotify/Screen/PlayListScreen/View/PlayListScreen.dart';
+import 'package:spotify/Screen/Premium/View/PremiumScreen.dart';
 import 'package:spotify/Screen/Search/Provider/SearchScreenProvider.dart';
 import 'package:spotify/Screen/Search/View/SearchScreen.dart';
 
@@ -33,6 +34,7 @@ void main() {
           'playlist': (context) => PlayListScreen(),
           'audio play':(context) => AudioPlayScreen(),
           'search':(context) => SearchScreen(),
+          'premium':(context) => PremiumScreen()
         },
       ),
     ),

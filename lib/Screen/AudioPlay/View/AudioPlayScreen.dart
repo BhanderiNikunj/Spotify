@@ -18,8 +18,8 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
   @override
   void initState() {
     super.initState();
-
     Provider.of<HomeProvider>(context, listen: false).initAudio();
+
   }
 
   @override
@@ -27,7 +27,8 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
     homeProviderfalse = Provider.of<HomeProvider>(context, listen: false);
     homeProvidertrue = Provider.of<HomeProvider>(context, listen: true);
 
-    Model m1 = ModalRoute.of(context)!.settings.arguments as Model;
+
+
 
     return SafeArea(
       child: Scaffold(
@@ -64,7 +65,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                 width: 400,
                 height: 400,
                 child: Image.asset(
-                  "${m1.Images![m1.index! + homeProvidertrue!.i]}",
+                  "${homeProviderfalse!.m1!.Images![homeProviderfalse!.m1!.index!]}",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -79,7 +80,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "${m1.Name![m1.index!]}",
+                            "${homeProviderfalse!.m1!.Name![homeProviderfalse!.m1!.index!]}",
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                           IconButton(
@@ -155,8 +156,8 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                               },
                               child: Icon(
                                 homeProvidertrue!.check
-                                    ? Icons.play_arrow
-                                    : Icons.pause,
+                                    ? Icons.pause
+                                    : Icons.play_arrow,
                                 color: Colors.black,
                                 size: 40,
                               ),

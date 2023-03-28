@@ -35,11 +35,15 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           items: [
             BottomNavigationBarItem(
               label: "Games",
-              icon: Icon(Icons.gamepad_outlined),
+              icon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
               label: "Apps",
-              icon: Icon(Icons.gamepad_outlined),
+              icon: Icon(Icons.search),
+            ),
+            BottomNavigationBarItem(
+              label: "Apps",
+              icon: Icon(Icons.subscriptions),
             ),
           ],
         ),

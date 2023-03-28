@@ -75,7 +75,7 @@ class _PlayListScreenState extends State<PlayListScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
-                        children: [
+                        children: const [
                           SizedBox(width: 20),
                           Icon(
                             Icons.favorite_border,
@@ -89,7 +89,7 @@ class _PlayListScreenState extends State<PlayListScreen> {
                           ),
                         ],
                       ),
-                      Icon(
+                      const Icon(
                         Icons.play_circle,
                         color: Colors.green,
                         size: 60,
@@ -109,10 +109,11 @@ class _PlayListScreenState extends State<PlayListScreen> {
                               index: index,
                             );
 
+                            homeProviderfalse!.selectMusic(M1);
+
                             Navigator.pushNamed(
                               context,
                               'audio play',
-                              arguments: M1,
                             );
                           },
                           child: Container(
