@@ -16,18 +16,12 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
   HomeProvider? homeProviderfalse;
 
   @override
-  void initState() {
-    super.initState();
-
-    Provider.of<HomeProvider>(context, listen: false).initAudio();
-  }
-
-  @override
   Widget build(BuildContext context) {
     homeProviderfalse = Provider.of<HomeProvider>(context, listen: false);
     homeProvidertrue = Provider.of<HomeProvider>(context, listen: true);
 
     Model m1 = ModalRoute.of(context)!.settings.arguments as Model;
+    Provider.of<HomeProvider>(context, listen: false).initAudio(m1);
 
     return SafeArea(
       child: Scaffold(
@@ -64,7 +58,7 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                 width: 400,
                 height: 400,
                 child: Image.asset(
-                  "${m1.Images![m1.index! + homeProvidertrue!.i]}",
+                  "${m1.Images![m1.index!]}",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -134,7 +128,6 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                           IconButton(
                             onPressed: () {
                               homeProviderfalse!.BackAudio();
-                              homeProviderfalse!.i--;
                             },
                             icon: Icon(
                               Icons.skip_previous,
@@ -155,8 +148,8 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                               },
                               child: Icon(
                                 homeProvidertrue!.check
-                                    ? Icons.play_arrow
-                                    : Icons.pause,
+                                    ? Icons.pause
+                                    : Icons.play_arrow,
                                 color: Colors.black,
                                 size: 40,
                               ),
@@ -164,7 +157,6 @@ class _AudioPlayScreenState extends State<AudioPlayScreen> {
                           ),
                           IconButton(
                             onPressed: () {
-                              homeProviderfalse!.i++;
                               homeProviderfalse!.NextAudio();
                             },
                             icon: Icon(

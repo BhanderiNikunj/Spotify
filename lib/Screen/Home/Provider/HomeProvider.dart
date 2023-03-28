@@ -1,11 +1,11 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:spotify/Screen/PlayListScreen/Model/ModelClass.dart';
 
 class HomeProvider extends ChangeNotifier {
   AssetsAudioPlayer? assetsAudioPlayer;
   bool check = false;
   Duration TotalDuration = Duration();
-  int i=0;
 
   List<Audio> PlayList1 = [
     Audio("Assets/Audio/PlayList1/AUKAAT.mp3"),
@@ -79,21 +79,11 @@ class HomeProvider extends ChangeNotifier {
     "Assets/Images/PlayList3/SARKAR.jpg",
   ];
 
-  void initAudio() {
+  void initAudio(Model m1) {
     assetsAudioPlayer = AssetsAudioPlayer();
 
     assetsAudioPlayer!.open(
-      Playlist(audios: PlayList1),
-      showNotification: true,
-      autoStart: false,
-    );
-    assetsAudioPlayer!.open(
-      Playlist(audios: PlayList2),
-      showNotification: true,
-      autoStart: false,
-    );
-    assetsAudioPlayer!.open(
-      Playlist(audios: PlayList3),
+      Playlist(audios: m1.PlayList),
       showNotification: true,
       autoStart: false,
     );
