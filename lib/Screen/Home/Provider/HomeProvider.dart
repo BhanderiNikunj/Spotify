@@ -1,9 +1,8 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:spotify/Screen/PlayListScreen/Model/ModelClass.dart';
 
 class HomeProvider extends ChangeNotifier {
-  AssetsAudioPlayer? assetsAudioPlayer= AssetsAudioPlayer();
+  AssetsAudioPlayer? assetsAudioPlayer;
   bool check = false;
   Duration TotalDuration = Duration();
   int i=0;
@@ -11,12 +10,27 @@ class HomeProvider extends ChangeNotifier {
   List<Audio> PlayList1 = [
     Audio("Assets/Audio/PlayList1/AUKAAT.mp3"),
     Audio("Assets/Audio/PlayList1/Rayfal 3 Reload.mp3"),
-    Audio("Assets/Audio/PlayList1/The Mafia Raaj.mp3"),
-    Audio("Assets/Audio/PlayList1/Rayfale Rahda Ramade.mp3"),
-    Audio("Assets/Audio/PlayList1/Rona Ser Ma.mp3"),
-    Audio("Assets/Audio/PlayList1/Lagyo Prityu No Rang.mp3"),
-    Audio("Assets/Audio/PlayList1/Nanpan No Nedlo.mp3"),
+    Audio("Assets/Audio/PlayList1/The Mafia Raaj.mp3.mp3"),
+    Audio("Assets/Audio/PlayList1/Rayfale Rahda Ramade.mp3.mp3"),
+    Audio("Assets/Audio/PlayList1/Rona Ser Ma.mp3.mp3"),
+    Audio("Assets/Audio/PlayList1/Lagyo Prityu No Rang.mp3.mp3"),
+    Audio("Assets/Audio/PlayList1/Nanpan No Nedlo.mp3.mp3"),
   ];
+  List<Audio> PlayList2 = [
+    Audio("Assets/Audio/PlayList2/Basti Ka Hasti.mp3"),
+    Audio("Assets/Audio/PlayList2/EK DIN PYAAR.mp3"),
+    Audio("Assets/Audio/PlayList2/COMPANY.mp3"),
+    Audio("Assets/Audio/PlayList2/No Love.mp3"),
+    Audio("Assets/Audio/PlayList2/TODH.mp3"),
+    Audio("Assets/Audio/PlayList2/YALGAAR.mp3"),
+  ];
+  List<Audio> PlayList3 = [
+    Audio("Assets/Images/PlayList3/295.mp3"),
+    Audio("Assets/Images/PlayList3/BROWN MUNDE.mp3"),
+    Audio("Assets/Images/PlayList3/Outlaw.mp3"),
+    Audio("Assets/Images/PlayList3/SARKAR.mp3"),
+  ];
+
   List PlayListName1 = [
     "AUKAAT",
     "Rayfal 3 Reload",
@@ -26,6 +40,21 @@ class HomeProvider extends ChangeNotifier {
     "Lagyo Prityu No Rang",
     "Nanpan No Nedlo",
   ];
+  List PlayListName2 = [
+    "Basti Ka Hasti",
+    "EK DIN PYAAR",
+    "COMPANY",
+    "No Love",
+    "TODH",
+    "YALGAAR",
+  ];
+  List PlayListName3 = [
+    "295",
+    "Brown munde",
+    "Outlaw",
+    "Sarkar",
+  ];
+
   List PlayListImage1 = [
     "Assets/Images/PlayList1/aukaat.jpg",
     "Assets/Images/PlayList1/Rayfal 3 Reload.jpg",
@@ -35,27 +64,6 @@ class HomeProvider extends ChangeNotifier {
     "Assets/Images/PlayList1/Lagyo Prityu No Rang.jpg",
     "Assets/Images/PlayList1/Nanpan No Nedlo.jpg",
   ];
-
-
-
-
-
-  List<Audio> PlayList2 = [
-    Audio("Assets/Audio/PlayList2/Basti Ka Hasti.mp3"),
-    Audio("Assets/Audio/PlayList2/EK DIN PYAAR.mp3"),
-    Audio("Assets/Audio/PlayList2/COMPANY.mp3"),
-    Audio("Assets/Audio/PlayList2/No Love.mp3"),
-    Audio("Assets/Audio/PlayList2/TODH.mp3"),
-    Audio("Assets/Audio/PlayList2/YALGAAR.mp3"),
-  ];
-  List PlayListName2 = [
-    "Basti Ka Hasti",
-    "EK DIN PYAAR",
-    "COMPANY",
-    "No Love",
-    "TODH",
-    "YALGAAR",
-  ];
   List PlayListImage2 = [
     "Assets/Images/PlayList2/Basti Ka Hasti.jpg",
     "Assets/Images/PlayList2/COMPANY.jpg",
@@ -64,22 +72,6 @@ class HomeProvider extends ChangeNotifier {
     "Assets/Images/PlayList2/TODH.jpg",
     "Assets/Images/PlayList2/YALGAAR.jpg",
   ];
-
-
-
-
-  List<Audio> PlayList3 = [
-    Audio("Assets/Images/PlayList3/295.mp3"),
-    Audio("Assets/Images/PlayList3/BROWN MUNDE.mp3"),
-    Audio("Assets/Images/PlayList3/Outlaw.mp3"),
-    Audio("Assets/Images/PlayList3/SARKAR.mp3"),
-  ];
-  List PlayListName3 = [
-    "295",
-    "Brown munde",
-    "Outlaw",
-    "Sarkar",
-  ];
   List PlayListImage3 = [
     "Assets/Images/PlayList3/295.jpg",
     "Assets/Images/PlayList3/BROWN MUNDE.jpg",
@@ -87,57 +79,21 @@ class HomeProvider extends ChangeNotifier {
     "Assets/Images/PlayList3/SARKAR.jpg",
   ];
 
-  List<Audio> PlayList4 = [
-    Audio("Assets/Images/PlayList3/King.mp3"),
-    Audio("Assets/Images/PlayList3/295.mp3"),
-    Audio("Assets/Images/PlayList3/BROWN MUNDE.mp3"),
-    Audio("Assets/Images/PlayList3/Outlaw.mp3"),
-    Audio("Assets/Images/PlayList3/SARKAR.mp3"),
-  ];
-  List PlayListName4 = [
-    "King",
-    "295",
-    "Brown munde",
-    "Outlaw",
-    "Sarkar",
-  ];
-  List PlayListImage4 = [
-    "Assets/Images/PlayList3/295.jpg",
-    "Assets/Images/PlayList3/King.jpg",
-    "Assets/Images/PlayList3/BROWN MUNDE.jpg",
-    "Assets/Images/PlayList3/Outlaw.jpg",
-    "Assets/Images/PlayList3/SARKAR.jpg",
-  ];
+  void initAudio() {
+    assetsAudioPlayer = AssetsAudioPlayer();
 
-  List<Audio> PlayList5 = [
-    Audio("Assets/Images/PlayList3/295.mp3"),
-    Audio("Assets/Images/PlayList3/BROWN MUNDE.mp3"),
-    Audio("Assets/Images/PlayList3/Outlaw.mp3"),
-    Audio("Assets/Images/PlayList3/SARKAR.mp3"),
-  ];
-  List PlayListName5 = [
-    "295",
-    "Brown munde",
-    "Outlaw",
-    "Sarkar",
-  ];
-  List PlayListImage5 = [
-    "Assets/Images/PlayList3/295.jpg",
-    "Assets/Images/PlayList3/BROWN MUNDE.jpg",
-    "Assets/Images/PlayList3/Outlaw.jpg",
-    "Assets/Images/PlayList3/SARKAR.jpg",
-  ];
-
-  Model? m1;
-
-  void selectMusic(Model m2){
-    m1 = m2;
-    notifyListeners();
-  }
-
-  void initAudio() async{
-    await assetsAudioPlayer!.open(
-      m1!.PlayList![m1!.index!],
+    assetsAudioPlayer!.open(
+      Playlist(audios: PlayList1),
+      showNotification: true,
+      autoStart: false,
+    );
+    assetsAudioPlayer!.open(
+      Playlist(audios: PlayList2),
+      showNotification: true,
+      autoStart: false,
+    );
+    assetsAudioPlayer!.open(
+      Playlist(audios: PlayList3),
       showNotification: true,
       autoStart: false,
     );
@@ -165,7 +121,7 @@ class HomeProvider extends ChangeNotifier {
   }
 
   void ChechPlayButton() {
-    check ? StopAudio() : StartAudio();
+    check ? StartAudio() : StopAudio();
     check = !check;
     notifyListeners();
   }
