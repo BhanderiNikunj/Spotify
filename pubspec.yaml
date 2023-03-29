@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   assets_audio_player: ^3.0.6
   provider: ^6.0.5
+  shared_preferences: ^2.0.20
   video_player: ^2.6.0
   chewie: ^1.4.0
 
@@ -74,7 +75,10 @@ flutter:
     - Assets/Images/PlayList2/
     - Assets/Audio/PlayList2/
     - Assets/Images/PlayList3/
-    - Assets/Audio/PlayList3/
+    - Assets/Audio/PlayList4/
+    - Assets/Images/PlayList4/
+    - Assets/Audio/PlayList5/
+    - Assets/Images/PlayList5/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

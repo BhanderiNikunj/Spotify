@@ -473,7 +473,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
-                          "${homeProviderfalse!.PlayListImage2[0]}",
+                          "${homeProviderfalse!.PlayListImage4[0]}",
                           width: double.infinity,
                           height: 350,
                           fit: BoxFit.cover,
@@ -555,7 +555,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Row(
                                       children: [
                                         Text(
-                                          "${homeProviderfalse!.PlayList2.length} Songs",
+                                          "${homeProviderfalse!.PlayList4.length} Songs",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 25,
@@ -593,7 +593,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
-                          "${homeProviderfalse!.PlayListImage3[0]}",
+                          "${homeProviderfalse!.PlayListImage5[0]}",
                           width: double.infinity,
                           height: 350,
                           fit: BoxFit.cover,
@@ -675,7 +675,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Row(
                                       children: [
                                         Text(
-                                          "${homeProviderfalse!.PlayList3.length} Songs",
+                                          "${homeProviderfalse!.PlayList5.length} Songs",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 25,
